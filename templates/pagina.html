@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <link href="static/estilo.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>BEM-VINDO, {{nome}}</h1>
+            <h2>Salas Disponíveis:</h2>
+            <ul>
+                {% for sala in salas %}
+                <li>{{ sala }}</li>
+                {% endfor %}
+            </ul>
+            <a class="btn btn-primary btn-block" href="{{ url_for('reserva') }}">Reservar Sala</a>
+            <form action="{{url_for('logout')}}" method="post">
+                <input class="btn btn-danger btn-lg btn-block" type="submit" value="Sair">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

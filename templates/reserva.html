@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário de Reserva</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <link href="static/estilo.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Formulário de Reserva de Sala</h1>
+            <form action="/reserva" method="POST">
+                <div class="form-group">
+                    <label for="sala">Sala:</label>
+                    <select class="form-control" id="sala" name="sala">
+                        <option value="1">Sala de Reunião 1</option>
+                        <option value="2">Sala de Reunião 2</option>
+                        <option value="3">Sala de Reunião 3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="data_inicio">Data e Hora de Início:</label>
+                    <input type="datetime-local" class="form-control" id="data_inicio" name="data_inicio">
+                </div>
+                <div class="form-group">
+                    <label for="duracao">Duração (em horas):</label>
+                    <input type="number" class="form-control" id="duracao" name="duracao" min="1" max="24" step="1">
+                </div>
+                <div class="form-group">
+                    <label for="usuario">Seu Usuário:</label>
+                    <input type="text" class="form-control" id="usuario" name="usuario">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Reservar Sala</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
