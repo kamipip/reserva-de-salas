@@ -97,10 +97,17 @@ def reserva():
 
 @app.route('/cancelar-reserva', methods=['POST'])
 def cancelar_reserva():
-    # verificar se o usuário está logado
-    # verificar se o usuário tem permissao para cancelar a reserva
-    # remover a reserva do banco de dados
-    pass
+    if 'usuario_logado' not in session or session['usuario_logado'] is None:
+        return jsonify({'message': 'Usuário não está logado'}), 401
+    
+    reserva_id = request.form['reserva_id'] 
+    
+    with banco.conectaBanco() as mydb:
+        cursor = mydb.cursor()
+        cursor.execute("DELETE FROM reservas WHERE id = %s", (reserva_id,))
+        mydb.commit()
+
+    return jsonify({'message': 'Reserva cancelada com sucesso'})
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
