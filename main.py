@@ -87,10 +87,13 @@ def reserva():
         mensagem = f"Parabéns, sua reserva foi realizada. Não esqueça que foi para o dia {data_formatada} e por apenas {duracao} horas."
 
         return mensagem
+    
+    with banco.conectaBanco() as mydb:
+        cursor = mydb.cursor()
+        cursor.execute("SELECT * FROM salas")
+        salas = [sala[1] for sala in cursor.fetchall()]  # Apenas os nomes das salas
 
-    return render_template('reserva.html')
-
-
+    return render_template('reserva.html', salas=salas)
 
 
 

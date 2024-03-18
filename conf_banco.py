@@ -9,7 +9,7 @@ class Banco:
             host="localhost",
             user="root",
             passwd="",
-            database="gerencia"
+            database="gerencia-salas"
         )
 
     def verificaUser(self, usuario):
@@ -22,7 +22,7 @@ class Banco:
     def obterSalas(self):
         with self.conectaBanco() as mydb:
             cursor = mydb.cursor()
-            cursor.execute("SELECT * FROM salas")
-            salas = cursor.fetchall()
-            return salas
+            cursor.execute("SELECT nome FROM salas")
+            salas = [sala[0] for sala in cursor.fetchall()]
+        return salas
 

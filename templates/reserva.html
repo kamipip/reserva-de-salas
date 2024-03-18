@@ -14,9 +14,9 @@
                 <div class="form-group">
                     <label for="sala">Sala:</label>
                     <select class="form-control" id="sala" name="sala">
-                        <option value="1">Sala de Reunião 1</option>
-                        <option value="2">Sala de Reunião 2</option>
-                        <option value="3">Sala de Reunião 3</option>
+                        {% for sala in salas %}
+                        <option value="{{ sala }}">{{ sala }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
