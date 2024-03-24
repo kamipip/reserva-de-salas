@@ -9,7 +9,7 @@ class Banco:
             host="localhost",
             user="root",
             passwd="",
-            database="gerencia-salas"
+            database="gerencia"
         )
 
     def verificaUser(self, usuario):
@@ -25,4 +25,21 @@ class Banco:
             cursor.execute("SELECT nome FROM salas")
             salas = [sala[0] for sala in cursor.fetchall()]
         return salas
+
+    def obterReservasUsuario(self, usuario):
+        try:
+            with self.conectaBanco() as mydb:
+                cursor = mydb.cursor()
+                cursor.execute("SELECT r.id, s.nome, r.data_inicio, r.duracao FROM reservas r INNER JOIN salas s ON r.sala_id = s.id WHERE usuario = %s", (usuario,))
+                reservas = cursor.fetchall()
+            return reservas
+        except Exception as e:
+            print("Erro ao obter as reservas do usuário:", e)
+            return None
+
+
+
+
+
+
 
