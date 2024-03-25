@@ -12,7 +12,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <!-- Removendo a coluna ID -->
                     <th>Sala</th>
                     <th>Data de Início</th>
                     <th>Duração</th>
@@ -23,11 +22,10 @@
             <tbody>
                 {% for reserva in reservas %}
                 <tr>
-                    <!-- Removendo a célula de ID -->
-                    <td>{{ reserva[1] }}</td>  <!-- Nome da sala -->
-                    <td>{{ reserva[2] }}</td>  <!-- Data de início -->
-                    <td>{{ reserva[3] }}</td>  <!-- Duração -->
-                    <td>{{ reserva[4] }}</td>  <!-- Usuário -->
+                    <td>{{ reserva[1] }}</td>  
+                    <td>{{ reserva[2] }}</td>  
+                    <td>{{ reserva[3] }}</td>  
+                    <td>{{ reserva[4] }}</td>  
                     <td>
                         <form action="/cancelar-reserva" method="POST">
                             <input type="hidden" name="reserva_id" value="{{ reserva[0] }}">  <!-- ID da reserva -->
