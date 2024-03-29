@@ -135,14 +135,14 @@ def reserva():
 
 
         #Inserção das reservas no banco de dados
-        with banco.conectaBanco() as mydb:
+       with banco.conectaBanco() as mydb:
             cursor = mydb.cursor()
             cursor.execute("INSERT INTO reservas (id, sala_id, data_inicio, duracao, usuario) VALUES (%s, %s, %s, %s, %s)", (id_reserva, sala_id, data_inicio, duracao, usuario))
             mydb.commit()
 
 
-        data_formatada = datetime.strptime(data_inicio, '%Y-%m-%dT%H:%M').strftime('%d de %B de %Y')
-        mensagem = f"Parabéns, sua reserva foi realizada. Não esqueça que foi para o dia {data_formatada} e por apenas {duracao} horas."
+            data_formatada = datetime.strptime(data_inicio, '%Y-%m-%dT%H:%M').strftime('%d de %B de %Y')
+            mensagem = f"Parabéns, sua reserva foi realizada. Não esqueça que foi para o dia {data_formatada} e por apenas {duracao} horas."
 
        return mensagem
  
@@ -159,8 +159,8 @@ def reserva():
 
 @app.route('/minhas-reservas')
 def minhas_reservas():
-   if 'usuario_logado' not in session or session['usuario_logado'] is None:
-       return redirect(url_for('login'))
+    if 'usuario_logado' not in session or session['usuario_logado'] is None:
+        return redirect(url_for('login'))
 
 
     usuario = session['usuario_logado']
@@ -178,16 +178,12 @@ def minhas_reservas():
     print("Reservas do usuário:", reservas)
 
 
-   if reservas is None:
+    if reservas is None:
        print("Nenhuma reserva encontrada para o usuário:", usuario)
        return render_template('minhas_reservas.html', reservas=[])
 
 
     return render_template('minhas_reservas.html', reservas=reservas)
-
-
-
-
 
 
 
@@ -218,6 +214,5 @@ def logout():
 
 
 # RODA A APLICAÇAO
-if __name__ == '__main__':
 if __name__ == '__main__':
    app.run(debug=True)
