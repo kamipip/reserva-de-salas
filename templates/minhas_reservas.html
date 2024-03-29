@@ -57,7 +57,6 @@
                     <th>Sala</th>
                     <th>Data de Início</th>
                     <th>Duração</th>
-                    <th>Usuário</th>
                     <th>Ação</th>
                 </tr>
             </thead>
@@ -67,7 +66,6 @@
                     <td>{{ reserva[1] }}</td>  
                     <td>{{ reserva[2] }}</td>  
                     <td>{{ reserva[3] }}</td>  
-                    <td>{{ reserva[4] }}</td>  
                     <td>
                         <form action="/cancelar-reserva" method="POST">
                             <input type="hidden" name="reserva_id" value="{{ reserva[0] }}">  <!-- ID da reserva -->

@@ -43,3 +43,17 @@ class Banco:
         except Exception as e:
             print("Erro ao obter as reservas do usuário:", e)
             return None
+        
+    def obterSalaPorNome(self, nome_sala):
+        try:
+            with self.conectaBanco() as mydb:
+                cursor = mydb.cursor()
+                cursor.execute("SELECT id FROM salas WHERE nome = %s", (nome_sala,))
+                sala = cursor.fetchone()
+            if sala:
+                return sala[0]
+            else:
+                return None
+        except Exception as e:
+            print("Erro ao obter sala por nome:", e)
+            return None
