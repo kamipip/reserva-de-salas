@@ -5,6 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/bootstrap.min.css" rel="stylesheet">
     <link href="static/estilo.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .table {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .table th, .table td {
+            padding: 15px;
+            text-align: center;
+        }
+        .btn-danger, .btn-voltar {
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        .btn-voltar {
+            background-color: #6c757d;
+        }
+        .btn-danger:hover, .btn-voltar:hover {
+            background-color: #c82333;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -31,6 +73,7 @@
                             <input type="hidden" name="reserva_id" value="{{ reserva[0] }}">  <!-- ID da reserva -->
                             <button type="submit" class="btn btn-danger">Cancelar</button>
                         </form>
+                        <a href="{{ url_for('home') }}" class="btn-voltar">Voltar</a>
                     </td>
                 </tr>
                 {% endfor %}
