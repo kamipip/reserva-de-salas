@@ -5,21 +5,28 @@ Este documento fornece uma visão geral dos testes utilizados no projeto Reserva
 
 ## 2. Visão geral dos testes
 ### Estrutura do projeto
-Os testes estão localizados no diretório `tests/` do projeto.
+Os testes estão localizados no diretório `test/` do projeto.
 
 ### Tecnologias utilizadas
-Os testes são escritos em Python usando o framework pytest.
+Os testes são escritos em Python usando o framework unittest.
 
 ## 3. Tipos de testes
 - **Testes unitários:** Testam unidades individuais de código.
-- **Testes de integração:** Verificam a interação entre diferentes partes do sistema.
-- **Testes de aceitação:** Validam o comportamento do sistema como um todo.
 
 ## 4. Estrutura dos testes
 Os testes são organizados em arquivos Python separados, seguindo a convenção de nomenclatura `test_nome_do_modulo.py`.
 
 ## 5. Como executar os testes
-Para executar todos os testes, execute o comando `pytest` no terminal na raiz do projeto. Caso queira executar um arquivo por vez, coloque o diretório em que o arquivo se encontra e execute o comando.
+Para executar todos os testes, execute o comando `python` no terminal na raiz do projeto. Caso queira executar um arquivo por vez, coloque o diretório em que o arquivo se encontra e execute o comando.
+
+![exemplo:](image-1.png)
 
 ## 6. Resultados dos testes
 Os resultados dos testes são exibidos no terminal, indicando casos de sucesso e falhas. Em caso de falha, informações adicionais são fornecidas para ajudar na depuração.
+
+## 7. Resultado do teste de Login
+
+## 8. Resultado do teste de Reserva
+![resultado:](image.png)
+
+## 9. Resultado do teste de Cancelar
