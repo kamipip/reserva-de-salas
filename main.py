@@ -34,7 +34,7 @@ def login():
      
        if user and senha == user[2]:
            session['usuario_logado'] = user[3]
-           return redirect(url_for('home'))
+           return redirect(url_for('home', success_message='Login bem-sucedido!'))
        else:
            error = 'Usuario ou senha incorretos, tente novamente.'
            return render_template('index.html', error=error)
@@ -53,7 +53,9 @@ def home():
            cursor.execute("SELECT * FROM salas")
            salas = [sala[1] for sala in cursor.fetchall()]  #Apenas os nomes das salas
 
-       return render_template('pagina.html', nome=nome, salas=salas)
+       success_message = request.args.get('success_message')
+       return render_template('pagina.html', nome=nome, salas=salas, success_message=success_message)
+
 
  
 def listar_salas():
