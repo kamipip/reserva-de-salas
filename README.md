@@ -19,6 +19,7 @@ A API de Reservas de Salas tem como objetivo fornecer um sistema eficiente para 
 
 Para rodar o projeto, você deve usar o comando `python main.py` no seu terminal e acessar a porta [http://localhost:5000](http://localhost:5000).
 
+
 # TESTES
 
 # Objetivo dos Testes
@@ -30,10 +31,10 @@ Este repositório contém testes para uma aplicação de login em Flask, com moc
 Para executar os testes, é necessário ter o Python e o framework pytest instalados no sistema. Utilize o seguinte comando:
 
 ```bash
-pytest test_login.py
+pytest test_modulo.py
 ```
 
-## Lista de Arquivos
+# Testes de Unidade para Classe Login
 
 1. **main.py**: Contém a lógica principal da aplicação, incluindo a função de login.
 2. **conf_banco.py**: Arquivo de configuração do banco de dados, contendo a classe `Banco` com métodos para verificação de usuários.
