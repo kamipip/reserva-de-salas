@@ -6,26 +6,19 @@ class TestAuthentication(unittest.TestCase):
 
     @patch('reservar_sala.banco.verificar_credenciais')
     def test_verifica_credenciais(self, mock_verificar_credenciais):
-        # Configuração do mock para simular a resposta do banco de dados
+
         mock_verificar_credenciais.return_value = (True, 'Test User')
-
-        # Testa credenciais válidas
-        self.assertTrue(verifica_credenciais('test_user', 'hashed_password'))
-
-        # Configuração do mock para simular a resposta do banco de dados para credenciais inválidas
+        self.assertTrue(verifica_credenciais('test_user', 'hashed_password')) # Testa credenciais válidas
         mock_verificar_credenciais.return_value = (False, None)
-
-        # Testa credenciais inválidas
-        resultado, _ = verifica_credenciais('test_user', 'wrong_password')
+        resultado, _ = verifica_credenciais('test_user', 'wrong_password') # Testa credenciais inválidas
+        
         self.assertFalse(resultado)
-
-
 
 class TestReservation(unittest.TestCase):
 
     @patch('reservar_sala.banco.reserva_sala')
     def test_fazer_reserva_com_projetor_disponivel(self, mock_reserva_sala):
-        # Configuração do mock para simular a função de fazer_reserva
+
         mock_reserva_sala.return_value = True
 
         # Testa fazer reserva com sucesso
@@ -42,7 +35,6 @@ class TestReservation(unittest.TestCase):
 
     @patch('reservar_sala.banco.reserva_sala')
     def test_fazer_reserva_com_projetor_esgotado(self, mock_reserva_sala):
-        # Configuração do mock para simular a função de fazer_reserva
         mock_reserva_sala.return_value = False
 
         # Testa fazer reserva com falha
