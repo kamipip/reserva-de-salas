@@ -20,7 +20,7 @@ class TestBanco(unittest.TestCase):
 
     def test_obterReservasUsuario(self):
         resultado = self.banco.obterReservasUsuario('usuarioteste')
-        self.assertEqual(resultado, [(18, 'sala 01', datetime(2024, 4, 1, 10, 0), 1)])
+        self.assertEqual(resultado, [(23, 'sala 01', datetime(2024, 4, 10, 10, 0), 1)])
 
     def test_obterSalaPorNome(self):
         resultado = self.banco.obterSalaPorNome('sala 01')
